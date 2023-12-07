@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "aeffabc4-0487-455c-b1cd-3642b166ae09",
+		"name": "Backend Challenge",
+		"description": "### All endpoints made for implementing the Backend Intern Challenge.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31385932"
+	},
+	"item": [
+		{
+			"name": "POSTMAN Collection",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Animesh Sinha\",\r\n    \"email\": \"animeshksinha27.com\",\r\n    \"password\": \"my-pwd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/auth/signup",
+						"description": "## Sign-Up as User\n\n### What is an User in this context?\n\nAn entity who has the authority to create forms and choose plugins for that form.\n\n### Endpoint (POST)\n\n`/api/auth/signup`\n\n### Body\n\n``` json\n{\n    \"email\": \"<string>\", // Unique Property\n    \"password\": \"<string>\",\n    \"name\": \"<string>\"\n}\n\n```\n\n### Response\n\n``` json\n{\n    \"success\": boolean,\n    \"message\": \"<string>\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"animeshksinha27@gmail.com\",\r\n    \"password\": \"my-pwd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/auth/signin",
+						"description": "## Login\n\n### What is an User in this context?\n\nAn entity who has the authority to create forms and choose plugins for that form.\n\n### Endpoint (POST)\n\n`/api/auth/login`\n\n### Body\n\n``` json\n{\n    \"email\": \"<string>\",\n    \"password\": \"<string>\",\n}\n\n```\n\n### Response\n\n``` json\n{\n    \"success\": boolean,\n    \"message\": \"<string>\",\n    \"user\": { // This property exist if success is true.\n        \"_id\": \"<string>\"\n        \"name\": \"<string>\",\n        \"email\": \"<string>\"\n    }\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{host}}/api/auth/user",
+						"description": "## Get User\n\nGets the user object, containing `email` and `name`.\n\n### Endpoint (GET)\n\n`/api/auth/user`\n\n### Response\n\n``` json\n{\n    \"success\": boolean,\n    \"user\": { // exist if success === true\n        \"_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n\n    }\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Out",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{host}}/api/auth/signout",
+						"description": "## Logout\n\nClears cookie, basically ends the session.\n\n### Endpoint (PUT)\n\n`/api/auth/logout`\n\n### Response\n\n``` json\n{\n     \"success\": boolean,\n     \"message\": \"<string>\"\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Plugins (Private Route)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{host}}/api/auth/plugins",
+				"description": "### Get all Plugins (Private Route)\n\nEndpoint to get all plugins that are registered. This can be seen by all users trying to create a form.\n\n### Endpoint (GET)\n\n`/api/auth/plugins`\n\n### Response\n\n``` json\n{\n    \"success\": boolean,\n    \"plugins\": [\n        {\n            \"_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"className\": \"<string>\", // Unique className for each Plugin\n            \"description\": \"<string>\", // To be used as per frontend's perusal.\n            \"config\": {\n                \"<string>\": { // config (an input required by plugin)\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"type\": \"field\" | \"string\n\" | \"number\"\n                }\n            }\n        }\n    ]\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Form (Private Route)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Hello Form World\",\r\n    \"openingTime\": \"2023-11-22T09:45:56.907Z\",\r\n    \"closingTime\": \"2099-11-25T09:45:56.907Z\",\r\n    \"formSchema\": {\r\n        \"Email\": {\r\n            \"type\": \"string\"\r\n        },\r\n        \"First Name\": {\r\n            \"type\": \"string\"\r\n        },\r\n        \"Age\": {\r\n            \"type\": \"number\"\r\n        },\r\n        \"Gender\": {\r\n            \"type\": \"select\",\r\n            \"options\": [\r\n                \"male\", \"female\", \"others\"\r\n            ]\r\n        },\r\n        \"Monthly Income\": {\r\n            \"type\": \"number\"\r\n        },\r\n        \"Monthly Savings\": {\r\n            \"type\": \"number\"\r\n        }\r\n    },\r\n    \"plugins\": {\r\n        \"EmailSender\": {\r\n            \"emailField\": \"Email\"\r\n        },\r\n        \"IncomeValidation\": {\r\n            \"monthlyIncome\": \"Monthly Income\",\r\n            \"monthlySavings\": \"Monthly Savings\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/api/auth/add-form",
+				"description": "## Add Form (Private Route)\n\nEndpoint to add schema of a form and subscribe to plugins.\n\n### Endpoint (POST)\n\n`/api/auth/add-form`\n\n### Body\n\n``` json\n{\n    \"name\": \"Form Name <string>\",\n    \"openingTime\": \"Date String eg: 2023-11-22T09:45:56.907Z\",\n    \"closingTime\": \"Date String eg: 2024-11-25T09:45:56.907Z\",\n    \"formSchema\": {\n        \"Field Name: <string>\": {\n            \"type\": \"string\" | \"number\" | \"select\",\n            \"options\": [ // This is only avaiable if type is \"select\"\n                \"string\" | \"number\"\n            ]\n\n    },\n    \"plugins\": {\n        \"Plugin Class Name <string>\": {\n            \"Required Input <string>\": \"<string>\"\n        }\n    }\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Forms (Private Route)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{host}}/api/auth/forms",
+				"description": "## Get My Forms (Private Route)\n\nGet all forms made by the logged in user.\n\n### Endpoint (GET)\n\n`/api/auth/forms`\n\n### Response\n\n``` json\n{\n    \"success\": true,\n    \"forms\": [ // this exist if success is true\n        {\n            \"_id\": \"<string>\",\n            \"name\": \"Form name <string>\",\n            \"openingTime\": \"Date String: 2023-11-22T09:45:56.907Z\",\n            \"closingTime\": \"Date String: 2024-11-25T09:45:56.907Z\",\n            \"formSchema\": {\n                \"Field Name <string>\": {\n                    \"type\": \"select\" | \"string\" | \"number\",\n                    \"options\": [ \"string\" | \"number\" ] // if type === \"select\"\n                }\n            }\n        }\n    ]\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Submit A Form Response",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"formId\": \"655dd80ec5054d6c2ede81c1\",\r\n    \"form\": {\r\n        \"First Name\": \"Animesh\",\r\n        \"Age\": 21,\r\n        \"Gender\": \"male\",\r\n        \"Email\": \"animeshksinha27@gmail.com\",\r\n        \"Monthly Income\": 0,\r\n        \"Monthly Savings\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/api/submit",
+				"description": "## Submit a Submission\n\nEndpoint to submit your entry of a form\n\n### Endpoint (POST)\n\n`/api/submit`\n\n### Body\n\n``` json\n{\n    \"formId\": \"<string>\",\n    \"form\": {\n        \"Field Name <string>\": \"string\" | \"number\"\n    }\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Form By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/form/:formId",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"form",
+						":formId"
+					],
+					"variable": [
+						{
+							"key": "formId",
+							"value": "<FORM ID string>"
+						}
+					]
+				},
+				"description": "## Get Form by ID\n\nGet form schema by form ID (Public Route)\n\n### Endpoint (GET)\n\n`/api/form/:formId`\n\n### Response Example:\n\n``` json\n{\n    \"success\": true,\n    \"form\": {\n        \"_id\": \"<string>\",\n        \"name\": \"Form-ula one\",\n        \"userId\": \"<string>\",\n        \"openingTime\": \"2023-11-22T09:45:56.907Z\",\n        \"closingTime\": \"2024-11-25T09:45:56.907Z\",\n        \"formSchema\": {\n            \"Email\": {\n                \"type\": \"string\"\n            },\n            \"First Name\": {\n                \"type\": \"string\"\n            },\n            \"Age\": {\n                \"type\": \"number\"\n            },\n            \"Gender\": {\n                \"type\": \"select\",\n                \"options\": [\n                    \"male\",\n                    \"female\",\n                    \"others\"\n                ]\n            }\n        },\n        \"plugins\": {\n            \"EmailSender\": {\n                \"emailField\": \"Email\"\n            }\n        },\n        \"__v\": 0\n    }\n}\n\n```"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

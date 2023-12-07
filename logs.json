@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2023-11-25T23:23:01.149Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 2,
+    "timestamp": "2023-11-25T23:23:07.580Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 3,
+    "timestamp": "2023-11-25T23:23:14.309Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 4,
+    "timestamp": "2023-11-25T23:23:20.718Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 5,
+    "timestamp": "2023-11-25T23:23:26.845Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 6,
+    "timestamp": "2023-11-25T23:23:32.908Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 7,
+    "timestamp": "2023-11-25T23:23:39.068Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 8,
+    "timestamp": "2023-11-25T23:23:45.144Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 9,
+    "timestamp": "2023-11-25T23:23:51.679Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 10,
+    "timestamp": "2023-11-25T23:42:55.022Z",
+    "description": "MONGODB_CONNECTION_SUCCESS",
+    "body": "Connected to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority"
+  },
+  {
+    "id": 11,
+    "timestamp": "2023-11-26T10:59:19.520Z",
+    "description": "MONGODB_CONNECTION_FAILURE",
+    "body": "Connection to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority failed"
+  },
+  {
+    "id": 12,
+    "timestamp": "2023-11-26T12:32:26.666Z",
+    "description": "MONGODB_CONNECTION_FAILURE",
+    "body": "Connection to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority failed"
+  },
+  {
+    "id": 13,
+    "timestamp": "2023-11-26T12:43:20.413Z",
+    "description": "MONGODB_CONNECTION_FAILURE",
+    "body": "Connection to MONGO DB: mongodb+srv://cluster0.zpruc19.mongodb.net/?retryWrites=true&w=majority failed"
+  },
+  {
+    "id": 14,
+    "timestamp": "2023-11-26T14:28:57.314Z",
+    "description": "UNAUTHORIZED_ACCESS_FAILURE",
+    "body": ""
+  }
+]
